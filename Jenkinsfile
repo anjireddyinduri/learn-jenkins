@@ -14,6 +14,10 @@ pipeline {
         choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
+    environment{
+        DEPLOY_To = 'Production'
+        GREETINGS = 'Good Morning'
+    }
     stages {
         stage('build') {
             steps {
@@ -43,6 +47,19 @@ pipeline {
 
             }
 
+        }
+        
+    }
+    post {
+        always {
+            echo 'this code always run'
+        }
+        
+        success {
+            echo 'this will run when code success'
+        }
+        failure {
+            echo 'this will run when code fails'
         }
     }
 }
