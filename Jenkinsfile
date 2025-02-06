@@ -44,6 +44,7 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
                 echo "Password: ${params.PASSWORD}"
                 echo "one more time tested"
+                echo "error some failure"
 
             }
 
